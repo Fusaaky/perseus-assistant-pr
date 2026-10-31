@@ -1,0 +1,20 @@
+# ============================================================
+# Perseus — fichiers à ne JAMAIS versionner
+# ============================================================
+
+# Secrets & identifiants
+.env
+credentials.json
+token.json
+
+# Environnement virtuel & caches Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Données locales générées (voix téléchargées, captures de debug,
+# profil navigateur persistant, téléchargements Drive, audit)
+data/
+logs/

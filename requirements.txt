@@ -1,0 +1,52 @@
+# ============================================================
+# Perseus — Assistant personnel local (J.A.R.V.I.S-like)
+# Python 3.11 recommandé :  pip install -r requirements.txt
+# ============================================================
+
+# --- Cerveau (LLM via OpenRouter, API compatible OpenAI) ---
+openai>=1.40,<2.0
+python-dotenv>=1.0,<2.0
+requests>=2.31,<3.0
+
+# --- Voix : Speech-to-Text 100% local (faster-whisper / CTranslate2) ---
+faster-whisper>=1.0,<2.0
+numpy>=1.26,<3.0
+sounddevice>=0.4.6,<1.0
+
+# --- Voix : Text-to-Speech ---
+# Piper (local, hors ligne) : version 1.3+ obligatoire. L'ancienne 1.2.0
+# dépendait de piper-phonemize, qui n'a plus de wheel Windows → pip échouait.
+piper-tts>=1.3,<2
+# Edge-TTS : voix neuronales françaises gratuites (cloud Microsoft, sans clé API).
+# Sert de secours automatique (TTS_PROVIDER=auto).
+edge-tts>=6.1,<8.0
+# Décodage MP3→WAV pour Edge-TTS (soundfile embarque libsndfile, wheels universelles).
+soundfile>=0.12,<1.0
+huggingface-hub>=0.23,<1.0
+# Optionnel — Kokoro TTS (plus naturel, nécessite PyTorch + espeak-ng) :
+# kokoro>=0.9
+# Optionnel — OCR local (nécessite Tesseract-OCR installé sur Windows) :
+# pytesseract>=0.3
+# ElevenLabs est appelé via son API REST (requests), pas de SDK requis.
+
+# --- Vision (capture d'écran) & contrôle du PC ---
+mss>=9.0,<11.0
+pillow>=10.0,<12.0
+pyautogui>=0.9.54,<1.0
+pyperclip>=1.8,<2.0
+
+# --- Automatisation web (portails scolaires EduConnect / Pronote) ---
+playwright>=1.45,<2.0
+
+# --- Google Workspace (Calendar, Docs, Drive) ---
+google-api-python-client>=2.130,<3.0
+google-auth>=2.30,<3.0
+google-auth-oauthlib>=1.2,<2.0
+google-auth-httplib2>=0.2,<1.0
+
+# --- Téléphonie : serveur de webhooks (Vapi.ai / Twilio) ---
+fastapi>=0.111,<1.0
+uvicorn>=0.30,<1.0
+
+# Optionnel — SDK Twilio direct (SMS, callbacks bruts) :
+# twilio>=9.0
